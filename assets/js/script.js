@@ -1,3 +1,6 @@
+let lonData = 0;
+let latData = 0;
+
 function displayPlace(lon, lat) {
     const map = new ol.Map({
         target: 'map',
@@ -13,5 +16,22 @@ function displayPlace(lon, lat) {
     });
 }
 
-displayPlace(0.1276,51.5072) // london 
-displayPlace(2.3522, 48.8566) // paris
+
+function showMap(placeName) {
+    var lonData, latData;
+    let queryURL = 'https://api.opencagedata.com/geocode/v1/json?&key=d29f7107b3d343c7b01affdd5a6ed6c4&q=' + placeName;
+    console.log(queryURL);
+    $.ajax({
+        url: queryURL,
+        method: 'GET'
+    })
+    .then(function(response){
+        lonData = response.results[0].geometry.lng;
+        latData = response.results[0].geometry.lat;
+        console.log(lonData + '  ' + latData);
+    })
+    .then(function(){
+        displayPlace(lonData, latData);
+    })
+}
+
