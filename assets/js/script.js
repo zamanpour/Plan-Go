@@ -1,5 +1,4 @@
-let lonData = 0;
-let latData = 0;
+
 
 function displayPlace(lon, lat) {
     const map = new ol.Map({
@@ -34,4 +33,19 @@ function showMap(placeName) {
         displayPlace(lonData, latData);
     })
 }
+
+
+// function to show the several main currencies 
+function showCurrency() {
+    let queryURL = 'https://api.exchangerate.host/latest';
+    $.ajax({
+        url: queryURL,
+        method: 'GET'
+    })
+    .then(function(response){
+        console.log(response);
+    })
+}
+
+
 
