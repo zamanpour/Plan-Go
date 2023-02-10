@@ -48,4 +48,23 @@ function showCurrency() {
 }
 
 
+// The page can only be manipulated until the document is 'reday'.
+$(document).ready(function(){
+    $('#search-form').on('click', 'button', function(event) {
+        // Prevent the refresh when hit the 'search' button.
+        event.preventDefault();
+        // console.log('The button was clicked');
+
+        // Get the city name from the input element
+        let cityName = $('#search').val().trim()
+        // console.log(typeof(cityName));
+
+        if(cityName != '') {
+            $('#map').empty();
+            showMap(cityName);
+        }
+        
+    })
+});
+
 
