@@ -43,13 +43,33 @@ function showCurrency() {
         method: 'GET'
     })
     .then(function(response){
-        console.log(response);
+        
+        let GBPCurrency = (response.rates.USD/response.rates.GBP).toFixed(3);
+        let EURCurrency = (response.rates.USD/response.rates.EUR).toFixed(3);
+        let JPYCurrency = (response.rates.USD/response.rates.JPY).toFixed(3);
+        let CHFCurrency = (response.rates.USD/response.rates.CHF).toFixed(3);
+        let CADCurrency = (response.rates.USD/response.rates.CAD).toFixed(3);
+
+        
+
+        const currencyDiv = $('<ul>').appendTo($('#currency-container'));
+        const GBPEl = $('<li>').text('GPB/USD: ' + GBPCurrency);
+        const EUREl = $('<li>').text('EUR/USD: ' + EURCurrency);
+        const JPYEl = $('<li>').text('JPY/USD: ' + JPYCurrency);
+        const CHFEl = $('<li>').text('CHF/USD: ' + CHFCurrency);
+        const CADEl = $('<li>').text('CAD/USD: ' + CADCurrency);
+
+
+        currencyDiv.append(GBPEl, EUREl, JPYEl, CHFEl, CADEl);
+
     })
 }
 
 
 // The page can only be manipulated until the document is 'reday'.
 $(document).ready(function(){
+    showCurrency();
+
     $('#search-form').on('click', 'button', function(event) {
         // Prevent the refresh when hit the 'search' button.
         event.preventDefault();
