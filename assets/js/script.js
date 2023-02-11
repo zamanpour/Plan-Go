@@ -27,7 +27,7 @@ function showMap(placeName) {
     .then(function(response){
         lonData = response.results[0].geometry.lng;
         latData = response.results[0].geometry.lat;
-        console.log(lonData + '  ' + latData);
+        // console.log(lonData + '  ' + latData);
     })
     .then(function(){
         displayPlace(lonData, latData);
