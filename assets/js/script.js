@@ -32,8 +32,60 @@ function showMap(placeName) {
     .then(function(){
         displayPlace(lonData, latData);
     })
+    .then(function(){
+        showWeather(latData, lonData);
+    })
+    
 }
 
+// function to show current weather and 5 day forecast of the searched city
+function showWeather(lat, lon){
+    let key = "d19a427e084cc28ea7bccbc2e7e39e2c";
+    let queryURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&" +"lon=" + lon + "&units=metric&appid=" + key;
+    
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response){
+        // Display current weather's temp, wind and humidity
+        const tempDiv = $('<p>').text(" Temp: " + response.list[0].main.temp + " °C").attr('style', 'padding:2px');
+
+        const windDiv = $('<p>').text(" Wind: " + response.list[0].wind.speed + " KPH").attr('style', 'padding:2px');
+
+        const humidityDiv = $('<p>').text(" Humidity: " + response.list[0].main.humidity + " %").attr('style', 'padding:2px');
+        let dateEl = moment().format("DD/MM/YYYY");
+        $('#today').text('(' +dateEl+ ')');
+        $('#today').append(tempDiv,windDiv, humidityDiv);
+
+        let date= response.list[0].dt;
+            let dateToday= moment.unix(date).format("DD/MM/YYYY");
+
+            for (let i = 1; i < 40; i++) {
+                let date = response.list[i].dt;
+                dateNext = moment.unix(date).format("DD/MM/YYYY");
+
+                if(dateToday !== dateNext){
+                    dateToday = dateNext;
+                    let temp = response.list[i].main.temp;
+                    let wind = response.list[i].wind.speed;
+                    let humidity = response.list[i].main.humidity;
+                    let icon = response.list[i].weather[0].icon;
+                    let iconUrl = 'https://openweathermap.org/img/wn/' + icon + '.png';
+                
+                    //Create cards for each day
+                    const cardsDiv = $('<div>').addClass('card col-3 m-2 text-white bg-info');
+                    const dateEl = $('<h6>').text(dateToday);
+                    const iconEl = $('<img>').attr('src', iconUrl);
+                    const tempEl = $('<p>').text('Temp: ' + temp + ' °C');
+                    const windEl = $('<p>').text('Wind: ' + wind + ' KPH');
+                    const humidityEl = $('<p>').text('Humidity: ' + humidity + '%');
+                    cardsDiv.append(dateEl, iconEl, tempEl, windEl, humidityEl);
+                    $('#forecast').append(cardsDiv);
+
+                }
+            } 
+    }) 
+} 
 
 // function to show the several main currencies 
 function showCurrency() {
@@ -52,12 +104,13 @@ function showCurrency() {
 
         
 
-        const currencyDiv = $('<ul>').appendTo($('#currency-container'));
-        const GBPEl = $('<li>').text('GPB/USD: ' + GBPCurrency);
-        const EUREl = $('<li>').text('EUR/USD: ' + EURCurrency);
-        const JPYEl = $('<li>').text('JPY/USD: ' + JPYCurrency);
-        const CHFEl = $('<li>').text('CHF/USD: ' + CHFCurrency);
-        const CADEl = $('<li>').text('CAD/USD: ' + CADCurrency);
+        const currencyDiv = $('<div>').appendTo($('#currency-container'));
+        currencyDiv.addClass('row container-fluid justify-content-between');
+        const GBPEl = $('<p>').text('GPB/USD: ' + GBPCurrency);
+        const EUREl = $('<p>').text('EUR/USD: ' + EURCurrency);
+        const JPYEl = $('<p>').text('JPY/USD: ' + JPYCurrency);
+        const CHFEl = $('<p>').text('CHF/USD: ' + CHFCurrency);
+        const CADEl = $('<p>').text('CAD/USD: ' + CADCurrency);
 
 
         currencyDiv.append(GBPEl, EUREl, JPYEl, CHFEl, CADEl);
