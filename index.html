@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://kit.fontawesome.com/d124de1eb1.js" crossorigin="anonymous"></script>
 
   <!-- <link rel="stylesheet" href="./node_modules/ol/ol.css"> -->
   <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css"
@@ -24,8 +25,7 @@
       <a class="navbar-brand" href="#">Plan & Go</a>
     </nav>
     <div id="currency-container">
-      icon for currency
-      <!-- <i class="fa-solid fa-money-check-dollar fa-flip" style="--fa-animation-duration: 3s;" ></i> -->
+      <i class="fa-solid fa-money-check-dollar fa-flip fa-2x" style="--fa-animation-duration: 3s; color: Mediumslateblue;" ></i>
     </div>
   </header>
   <main class="container">
@@ -50,13 +50,16 @@
         <h3>
           Map
         </h3>
-        <div id="map"></div>
+        <div id="map" class="border-secondary"></div>
         <div class="row">
           <div class="col-6">
             <h3>
               Weather
             </h3>
-            <div id="weather"></div>
+            <div id="weather">
+              <div id="today" class="row mt-3" role="region" aria-live="polite"></div>
+              <div id="forecast" class="row mt-3 justify-content-lg-start" role="region" aria-live="polite"></div>
+            </div>
           </div>
           <div class="col-6">
             <h3>
