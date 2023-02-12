@@ -1,6 +1,7 @@
 
-
+// function to diplay map of a place based on the lon and lat data
 function displayPlace(lon, lat) {
+
     const map = new ol.Map({
         target: 'map',
         layers: [
@@ -10,12 +11,15 @@ function displayPlace(lon, lat) {
         ],
         view: new ol.View({
             center: ol.proj.fromLonLat([lon, lat]),
-            zoom: 10
+            zoom: 10,
+            maxZoom: 15,
+            minZoom:7,
         })
     });
 }
 
 
+// function to show the map of a place
 function showMap(placeName) {
     var lonData, latData;
     let queryURL = 'https://api.opencagedata.com/geocode/v1/json?&key=d29f7107b3d343c7b01affdd5a6ed6c4&q=' + placeName;
@@ -27,7 +31,7 @@ function showMap(placeName) {
     .then(function(response){
         lonData = response.results[0].geometry.lng;
         latData = response.results[0].geometry.lat;
-        console.log(lonData + '  ' + latData);
+        // console.log(lonData + '  ' + latData);
     })
     .then(function(){
         displayPlace(lonData, latData);
