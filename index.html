@@ -5,14 +5,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <!-- bootstrap 4.3 and bootstrap fontawesome icons -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <script src="https://kit.fontawesome.com/d124de1eb1.js" crossorigin="anonymous"></script>
+  
 
   <!-- <link rel="stylesheet" href="./node_modules/ol/ol.css"> -->
   <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css"
     type="text/css">
   <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Aleo&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./assets/css/style.css" />
   <title>Plan n Go</title>
@@ -22,31 +31,37 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <img src="/assets/images/airplane_icon.png" id="icon" />
-      <a class="navbar-brand" href="#">Plan & Go</a>
+      <a class="navbar-brand ml-4" href="#">Plan & Go</a>
     </nav>
-    <div id="currency-container">
-      <i class="fa-solid fa-money-check-dollar fa-flip fa-2x" style="--fa-animation-duration: 3s; color: Mediumslateblue;" ></i>
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <i class="fa-solid fa-money-check-dollar fa-flip fa-2x" style="--fa-animation-duration: 3s; color: Mediumslateblue;" ></i>
+        <div id="currency-container" class="col-md-10 justify-content-between m-0">
+        </div>
+      </div>
+      
     </div>
+    
   </header>
   <main class="container">
 
-    <div class="jumbotron">
-      <h1 class="display-4">Find everything about your destination!</h1>
-      <p class="lead">You can search for information on the must-see places in different countries.</p>
+    <div class="jumbotron mt-2">
+      <h1 class="display-4 text-light">Find everything about your destination!</h1>
+      <p class="lead text-light">Search for the information of your dream cities.</p>
       <hr class="my-4">
     </div>
     <div class="row">
       <div class="col-12 search-container">
-        <form id="search-form" class="form-inline my-2 my-lg-0">
+        <form id="search-form" class="form-inline my-2 my-lg-0 justify-content-center">
           <label for="search">
             <h2>Where to?</h2>
           </label>
-          <input class="form-control mr-sm-2" id="search" type="search" placeholder="	London" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <input class="form-control mr-sm-2 ml-5 mr-0" id="search" type="search" placeholder="	London" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0 ml-0 mr-0" type="submit">Search</button>
         </form>
       </div>
       <div class="col-9">
-        <h2 id="placeName">Place Name</h2>
+        <h2 id="placeName" class="glow">Place Name</h2>
         <div id="description"></div>
         <div id="map" class="border-secondary"></div>
         <div class="row">
