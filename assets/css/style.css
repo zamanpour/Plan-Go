@@ -1,5 +1,6 @@
 body {
     font-family: 'Aleo',serif;
+    background-color: aliceblue;
 }
 
 /* use online text-stroke generator to modify the style of the brand name*/
@@ -29,6 +30,8 @@ nav a {
 #map {
     max-height: 300px;
     overflow: hidden;
+    box-shadow: 2px 2px 5px green;
+    border-radius: 10px;
 }
 
 #currency-container li {
@@ -52,8 +55,35 @@ nav a {
     padding-bottom: 20px;
     margin-bottom: 50px;
 }
+.description{
+    padding: 5px;
+    height: 350px;
+    overflow: scroll;
+    background-color: rgb(243, 244, 238);
+    border-radius: 20px;
+}
+
 
 footer {
     border-top: 1px solid blue;
     text-align: center;
+}
+
+/* style of a glowing text */
+.glow {
+    font-size: 25px;
+    color: #fff;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e60073, 0 0 20px #e60073;
+    }
+
+    to {
+        text-shadow: 0 0 5px #fff, 0 0 10px #ff4da6, 0 0 15px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 70px #ff4da6;
+    }
 }

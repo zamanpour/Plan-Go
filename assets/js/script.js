@@ -85,7 +85,7 @@ function showDescription(cityName){
         console.log(response.query.pages[pageID].extract);
         $('#description').empty();
         $('#placeName').text(response.query.pages[pageID].title);
-        const descriptionEl = $('<p>').text(response.query.pages[pageID].extract);
+        const descriptionEl = $('<p>').text(response.query.pages[pageID].extract).addClass('description');
         $('#description').append(descriptionEl);
     })
 }
@@ -164,6 +164,7 @@ $(document).ready(function(){
         if(cityName != '') {
             $('#map').empty();
             showInfo(cityName);
+            $('#search').val('');
         }
         
     })
