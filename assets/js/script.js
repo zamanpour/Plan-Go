@@ -1,6 +1,6 @@
 
 // function to diplay map of a place based on the lon and lat data
-function displayPlace(lon, lat) {
+function showMap(lon, lat) {
 
     const map = new ol.Map({
         target: 'map',
@@ -18,30 +18,6 @@ function displayPlace(lon, lat) {
     });
 }
 
-
-// function to show the map of a place
-function showMap(placeName) {
-    var lonData, latData;
-    let queryURL = 'https://api.opencagedata.com/geocode/v1/json?&key=d29f7107b3d343c7b01affdd5a6ed6c4&q=' + placeName;
-    console.log(queryURL);
-    $.ajax({
-        url: queryURL,
-        method: 'GET'
-    })
-    .then(function(response){
-        lonData = response.results[0].geometry.lng;
-        latData = response.results[0].geometry.lat;
-        // console.log(lonData + '  ' + latData);
-    })
-    .then(function(){
-        displayPlace(lonData, latData);
-    })
-    .then(function(){
-        showWeather(latData, lonData);
-    })
-    
-}
-
 // function to show current weather and 5 day forecast of the searched city
 function showWeather(lat, lon){
     let key = "d19a427e084cc28ea7bccbc2e7e39e2c";
@@ -51,6 +27,9 @@ function showWeather(lat, lon){
         url: queryURL,
         method: "GET"
     }).then(function(response){
+        $('#today').empty();
+        $('#forecast').empty();
+
         // Display current weather's temp, wind and humidity
         const tempDiv = $('<p>').text(" Temp: " + response.list[0].main.temp + " °C").attr('style', 'padding:2px');
 
@@ -91,6 +70,50 @@ function showWeather(lat, lon){
     }) 
 } 
 
+// function to show the description of the searched city
+function showDescription(cityName){
+    let queryURL = 'https://en.wikipedia.org/w/api.php?origin=*&format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=';
+    queryURL += cityName;
+    console.log(queryURL);
+    $.ajax({
+        url: queryURL,
+        method: 'GET'
+    })
+    .then(function(response) {
+        let pageID = Object.keys(response.query.pages)[0] ;
+        // wikipedia description. ps: use pages[pageID] other than pages.pageID
+        console.log(response.query.pages[pageID].extract);
+        $('#description').empty();
+        $('#placeName').text(response.query.pages[pageID].title);
+        const descriptionEl = $('<p>').text(response.query.pages[pageID].extract);
+        $('#description').append(descriptionEl);
+    })
+}
+
+// function to show the informations of the searched city
+function showInfo(placeName) {
+    let lonData, latData;
+    let queryURL = 'https://api.opencagedata.com/geocode/v1/json?&key=d29f7107b3d343c7b01affdd5a6ed6c4&q=' + placeName;
+    console.log(queryURL);
+    $.ajax({
+        url: queryURL,
+        method: 'GET'
+    })
+    .then(function(response){
+        lonData = response.results[0].geometry.lng;
+        latData = response.results[0].geometry.lat;
+        // console.log(lonData + '  ' + latData);
+    })
+    .then(function(){
+        showDescription(placeName);
+        showMap(lonData, latData);
+        showWeather(latData, lonData);
+    })
+    
+}
+
+
+
 // function to show the several main currencies 
 function showCurrency() {
     let queryURL = 'https://api.exchangerate.host/latest';
@@ -123,6 +146,8 @@ function showCurrency() {
 }
 
 
+
+
 // The page can only be manipulated until the document is 'reday'.
 $(document).ready(function(){
     showCurrency();
@@ -138,7 +163,7 @@ $(document).ready(function(){
 
         if(cityName != '') {
             $('#map').empty();
-            showMap(cityName);
+            showInfo(cityName);
         }
         
     })
