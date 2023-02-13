@@ -80,10 +80,15 @@ footer {
 
 @keyframes glow {
     from {
-        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e60073, 0 0 20px #e60073;
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #2f3ee6, 0 0 20px #05368a;
     }
 
     to {
-        text-shadow: 0 0 5px #fff, 0 0 10px #ff4da6, 0 0 15px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 70px #ff4da6;
+        text-shadow: 0 0 5px #fff, 0 0 10px #2064d9, 0 0 15px #2d7ff1, 0 0 20px #3c6ec4, 0 0 30px #3571b6, 0 0 70px #195ec5;
     }
+}
+.weatherIcon {
+    align-self: center;
+    width: 40px;
+    height: auto;
 }

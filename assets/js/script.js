@@ -27,21 +27,28 @@ function showWeather(lat, lon){
         url: queryURL,
         method: "GET"
     }).then(function(response){
+        $('#weather').empty();
         $('#today').empty();
         $('#forecast').empty();
 
         // Display current weather's temp, wind and humidity
-        const tempDiv = $('<p>').text(" Temp: " + response.list[0].main.temp + " °C").attr('style', 'padding:2px');
+        const todayCardDiv = $('<div>').addClass('card col-10 col-lg-5 m-2 text-white bg-primary text-center py-2');
+        let todayDate = moment().format("DD/MM/YYYY");
+        let todayIcon = response.list[0].weather[0].icon;
+        let todayIconUrl = 'https://openweathermap.org/img/wn/' + todayIcon + '.png';
+        const dateEl = $('<h5>').text(todayDate);
+        const iconEl = $('<img>').attr('src', todayIconUrl).addClass('weatherIcon');
+        const tempDiv = $('<p>').text(" Temp: " + response.list[0].main.temp + " °C");
+        const windDiv = $('<p>').text(" Wind: " + response.list[0].wind.speed + " KPH");
+        const humidityDiv = $('<p>').text(" Humidity: " + response.list[0].main.humidity + " %");
+        todayCardDiv.append(dateEl, iconEl, tempDiv, windDiv, humidityDiv);
+        $('#weather').append(todayCardDiv)
 
-        const windDiv = $('<p>').text(" Wind: " + response.list[0].wind.speed + " KPH").attr('style', 'padding:2px');
-
-        const humidityDiv = $('<p>').text(" Humidity: " + response.list[0].main.humidity + " %").attr('style', 'padding:2px');
-        let dateEl = moment().format("DD/MM/YYYY");
-        $('#today').text('(' +dateEl+ ')');
-        $('#today').append(tempDiv,windDiv, humidityDiv);
+        // $('#today').text('(' +dateEl+ ')');
+        // $('#today').append(tempDiv,windDiv, humidityDiv);
 
         let date= response.list[0].dt;
-            let dateToday= moment.unix(date).format("DD/MM/YYYY");
+        let dateToday= moment.unix(date).format("DD/MM/YYYY");
 
             for (let i = 1; i < 40; i++) {
                 let date = response.list[i].dt;
@@ -56,14 +63,14 @@ function showWeather(lat, lon){
                     let iconUrl = 'https://openweathermap.org/img/wn/' + icon + '.png';
                 
                     //Create cards for each day
-                    const cardsDiv = $('<div>').addClass('card col-10 m-2 text-white bg-info');
-                    const dateEl = $('<h6>').text(dateToday);
-                    const iconEl = $('<img>').attr('src', iconUrl);
+                    const cardsDiv = $('<div>').addClass('card col-10 col-lg-5 m-2 text-white bg-info text-center py-2');
+                    const dateEl = $('<h5>').text(dateToday);
+                    const iconEl = $('<img>').attr('src', iconUrl).addClass('weatherIcon');
                     const tempEl = $('<p>').text('Temp: ' + temp + ' °C');
                     const windEl = $('<p>').text('Wind: ' + wind + ' KPH');
                     const humidityEl = $('<p>').text('Humidity: ' + humidity + '%');
                     cardsDiv.append(dateEl, iconEl, tempEl, windEl, humidityEl);
-                    $('#forecast').append(cardsDiv);
+                    $('#weather').append(cardsDiv);
 
                 }
             } 
