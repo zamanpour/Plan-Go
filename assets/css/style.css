@@ -18,6 +18,14 @@
     overflow: hidden;
 }
 
+#currency-container li {
+    list-style-type: none;
+    background-color: rgb(35, 126, 206);
+    border-radius: 5px;
+    margin: 5px;
+    color: white;
+}
+
 .search-container {
     border-bottom: 2px solid #5246f7;
     padding-bottom: 20px;

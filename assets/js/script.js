@@ -56,7 +56,7 @@ function showWeather(lat, lon){
                     let iconUrl = 'https://openweathermap.org/img/wn/' + icon + '.png';
                 
                     //Create cards for each day
-                    const cardsDiv = $('<div>').addClass('card col-3 m-2 text-white bg-info');
+                    const cardsDiv = $('<div>').addClass('card col-10 m-2 text-white bg-info');
                     const dateEl = $('<h6>').text(dateToday);
                     const iconEl = $('<img>').attr('src', iconUrl);
                     const tempEl = $('<p>').text('Temp: ' + temp + ' °C');
@@ -131,13 +131,13 @@ function showCurrency() {
 
         
 
-        const currencyDiv = $('<div>').appendTo($('#currency-container'));
-        currencyDiv.addClass('row container-fluid justify-content-between');
-        const GBPEl = $('<p>').text('GPB/USD: ' + GBPCurrency);
-        const EUREl = $('<p>').text('EUR/USD: ' + EURCurrency);
-        const JPYEl = $('<p>').text('JPY/USD: ' + JPYCurrency);
-        const CHFEl = $('<p>').text('CHF/USD: ' + CHFCurrency);
-        const CADEl = $('<p>').text('CAD/USD: ' + CADCurrency);
+        const currencyDiv = $('<ol>').appendTo($('#currency-container'));
+        currencyDiv.addClass('row container justify-content-between text-center m-0');
+        const GBPEl = $('<li>').text('GPB/USD: ' + GBPCurrency).addClass('col-sm-5 col-lg-2 p-0');
+        const EUREl = $('<li>').text('EUR/USD: ' + EURCurrency).addClass('col-sm-5 col-lg-2 p-0');
+        const JPYEl = $('<li>').text('JPY/USD: ' + JPYCurrency).addClass('col-sm-5 col-lg-2 p-0');
+        const CHFEl = $('<li>').text('CHF/USD: ' + CHFCurrency).addClass('col-sm-5 col-lg-2 p-0');
+        const CADEl = $('<li>').text('CAD/USD: ' + CADCurrency).addClass('col-sm-5 col-lg-2 p-0');
 
 
         currencyDiv.append(GBPEl, EUREl, JPYEl, CHFEl, CADEl);
