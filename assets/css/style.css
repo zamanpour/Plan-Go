@@ -1,3 +1,13 @@
+body {
+    font-family: 'Aleo',serif;
+}
+
+/* use online text-stroke generator to modify the style of the brand name*/
+nav a {
+    font-family: 'Pacifico', cursive;
+    color: gold !important; 
+    text-shadow: rgb(43, 98, 255) 3px 0px 0px, rgb(43, 98, 255) 2.83487px 0.981584px 0px, rgb(43, 98, 255) 2.35766px 1.85511px 0px, rgb(43, 98, 255) 1.62091px 2.52441px 0px, rgb(43, 98, 255) 0.705713px 2.91581px 0px, rgb(43, 98, 255) -0.287171px 2.98622px 0px, rgb(43, 98, 255) -1.24844px 2.72789px 0px, rgb(43, 98, 255) -2.07227px 2.16926px 0px, rgb(43, 98, 255) -2.66798px 1.37182px 0px, rgb(43, 98, 255) -2.96998px 0.42336px 0px, rgb(43, 98, 255) -2.94502px -0.571704px 0px, rgb(43, 98, 255) -2.59586px -1.50383px 0px, rgb(43, 98, 255) -1.96093px -2.27041px 0px, rgb(43, 98, 255) -1.11013px -2.78704px 0px, rgb(43, 98, 255) -0.137119px -2.99686px 0px, rgb(43, 98, 255) 0.850987px -2.87677px 0px, rgb(43, 98, 255) 1.74541px -2.43999px 0px, rgb(43, 98, 255) 2.44769px -1.73459px 0px, rgb(43, 98, 255) 2.88051px -0.838247px 0px;
+}
 
 
 /* Background to jumbotron */
@@ -5,13 +15,16 @@
     width: 100%;
     background: url("/assets/images/jumbotron1.jpg");
     background-size: cover;
-    }
+    text-shadow: 1px 1px 10px green;
+    font-family: 'Aleo', serif;
+}
 
-    #icon {
-        border-radius: 50%;
-        height: 50px;
-        width: 50px;
-    }
+
+#icon {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
     
 #map {
     max-height: 300px;
@@ -25,6 +38,14 @@
     margin: 5px;
     color: white;
 }
+
+#currency-container li:hover {
+    scale: 1.2;
+    color: blue;
+    background-color: gold;
+    box-shadow: 0px 0px 10px rgb(196, 197, 255);
+}
+
 
 .search-container {
     border-bottom: 2px solid #5246f7;
