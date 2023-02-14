@@ -129,11 +129,9 @@ function showDescription(cityName) {
             recordSearch(response);
         })
 }
-
+var invalidSearch = false;
 // function to show the informations of the searched city
 function showInfo(placeName) {
-    showDescription(placeName);
-    showNews(placeName);
 
     let lonData, latData;
     let queryURL = 'https://api.opencagedata.com/geocode/v1/json?&key=d29f7107b3d343c7b01affdd5a6ed6c4&q=' + placeName;
@@ -145,12 +143,21 @@ function showInfo(placeName) {
         .then(function (response) {
             lonData = response.results[0].geometry.lng;
             latData = response.results[0].geometry.lat;
-            // console.log(lonData + '  ' + latData);
+            console.log(lonData + '  ' + latData);
         })
         .then(function () {
             showMap(lonData, latData);
             showWeather(latData, lonData);
+            showDescription(placeName);
+            showNews(placeName);
+        }).fail(function () {
+            invalidSearch = true;
+            $('#errorModal').modal('show')
+            return false;
         });
+    if (!invalidSearch) {
+
+    }
 
 }
 

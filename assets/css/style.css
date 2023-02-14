@@ -40,7 +40,7 @@ nav a {
 
 /* style to the date */
 
-h5 {
+#show-date h5 {
     background-color: rgb(35, 126, 206);
     border-radius: 5px;
     margin: 5px;
