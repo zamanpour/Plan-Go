@@ -204,9 +204,11 @@ function updatePage(NYTData) {
 
         // Log published date, and append to document if exists
         var pubDate = article.pub_date;
+
+        console.log(moment(pubDate).format('DD/MM/YYYY, HH:MM A'));
         //console.log(article.pub_date);
         if (pubDate) {
-            $articleListItem.append("<h4>" + article.pub_date + "</h4>");
+            $articleListItem.append("<h4>Publication Time: " + moment(pubDate).format('DD/MM/YYYY, HH:MM A') + "</h4>");
         }
 
 
