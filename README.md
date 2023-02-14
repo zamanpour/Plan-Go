@@ -35,7 +35,7 @@ Our group name is Bluebirds, with three members (Vinita, Xiao and Yasha). We wor
 ## Deployment
 Here is the screenshot of the application.
 
-<img src='images/Plan-Go.png'>
+<img src='assets/images/Plan-Go.png'>
 
 Click the link to test my webpage: 
 
