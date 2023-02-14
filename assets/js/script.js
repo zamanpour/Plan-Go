@@ -42,7 +42,7 @@ function showWeather(lat, lon) {
         let todayIconUrl = 'https://openweathermap.org/img/wn/' + todayIcon + '.png';
         const dateEl = $('<h5>').text(todayDate);
         const iconEl = $('<img>').attr('src', todayIconUrl).addClass('weatherIcon');
-        const tempDiv = $('<p>').text(" Temp: " + response.list[0].main.temp + " °C");
+        const tempDiv = $('<p>').text(" Temp: " + response.list[0].main.temp.toFixed(0) + " °C");
         const windDiv = $('<p>').text(" Wind: " + response.list[0].wind.speed + " KPH");
         const humidityDiv = $('<p>').text(" Humidity: " + response.list[0].main.humidity + " %");
         todayCardDiv.append(dateEl, iconEl, tempDiv, windDiv, humidityDiv);
@@ -60,7 +60,7 @@ function showWeather(lat, lon) {
 
             if (dateToday !== dateNext) {
                 dateToday = dateNext;
-                let temp = response.list[i].main.temp;
+                let temp = response.list[i].main.temp.toFixed(0);
                 let wind = response.list[i].wind.speed;
                 let humidity = response.list[i].main.humidity;
                 let icon = response.list[i].weather[0].icon;
