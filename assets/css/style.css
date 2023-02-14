@@ -1,5 +1,5 @@
 body {
-    font-family: 'Aleo',serif;
+    font-family: 'Aleo', serif;
     background-color: aliceblue;
 }
 
@@ -10,7 +10,7 @@ body {
 /* use online text-stroke generator to modify the style of the brand name*/
 nav a {
     font-family: 'Pacifico', cursive;
-    color: gold !important; 
+    color: gold !important;
     text-shadow: rgb(43, 98, 255) 3px 0px 0px, rgb(43, 98, 255) 2.83487px 0.981584px 0px, rgb(43, 98, 255) 2.35766px 1.85511px 0px, rgb(43, 98, 255) 1.62091px 2.52441px 0px, rgb(43, 98, 255) 0.705713px 2.91581px 0px, rgb(43, 98, 255) -0.287171px 2.98622px 0px, rgb(43, 98, 255) -1.24844px 2.72789px 0px, rgb(43, 98, 255) -2.07227px 2.16926px 0px, rgb(43, 98, 255) -2.66798px 1.37182px 0px, rgb(43, 98, 255) -2.96998px 0.42336px 0px, rgb(43, 98, 255) -2.94502px -0.571704px 0px, rgb(43, 98, 255) -2.59586px -1.50383px 0px, rgb(43, 98, 255) -1.96093px -2.27041px 0px, rgb(43, 98, 255) -1.11013px -2.78704px 0px, rgb(43, 98, 255) -0.137119px -2.99686px 0px, rgb(43, 98, 255) 0.850987px -2.87677px 0px, rgb(43, 98, 255) 1.74541px -2.43999px 0px, rgb(43, 98, 255) 2.44769px -1.73459px 0px, rgb(43, 98, 255) 2.88051px -0.838247px 0px;
 }
 
@@ -30,7 +30,7 @@ nav a {
     height: 50px;
     width: 50px;
 }
-    
+
 #map {
     max-height: 300px;
     overflow: hidden;
@@ -59,7 +59,8 @@ nav a {
     padding-bottom: 20px;
     margin-bottom: 50px;
 }
-.description{
+
+.description {
     padding: 5px;
     height: 350px;
     overflow: scroll;
@@ -96,8 +97,25 @@ footer p {
         text-shadow: 0 0 5px #fff, 0 0 10px #2064d9, 0 0 15px #2d7ff1, 0 0 20px #3c6ec4, 0 0 30px #3571b6, 0 0 70px #195ec5;
     }
 }
+
 .weatherIcon {
     align-self: center;
     width: 40px;
     height: auto;
+}
+
+.list-group {
+    margin: 15px 0;
+}
+
+.list-group-item h2 {
+    font-size: 1.2rem;
+}
+
+.list-group-item h3 {
+    font-size: 1.1rem;
+}
+
+.list-group-item h4 {
+    font-size: 1rem;
 }
