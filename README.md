@@ -35,16 +35,17 @@ Our group name is Bluebirds, with three members (Vinita, Xiao and Yasha). We wor
 ## Deployment
 Here is the screenshot of the application.
 
-
+<img src='images/Plan-Go.png'>
 
 Click the link to test my webpage: 
 
+https://zamanpour.github.io/Plan-Go/
 
 ## Contribution
 The project was completed by Team Bluebirds.
 * Vinita Yadav, yadav.vinita@gmail.com
 * Xiao Zhao, zhaoxiao20071106@gmail.com
-* Yasha Zamanpour Kolouee, 
+* Yasha Zamanpour Kolouee, yasha.zamanpour@gmail.com
 
 
 ## Community
