@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <script src="https://kit.fontawesome.com/d124de1eb1.js" crossorigin="anonymous"></script>
-  
+
 
   <!-- <link rel="stylesheet" href="./node_modules/ol/ol.css"> -->
   <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css"
@@ -35,13 +35,14 @@
     </nav>
     <div class="container">
       <div class="row justify-content-center align-items-center" id="bg-color">
-        <i class="fa-solid fa-money-check-dollar fa-flip fa-2x" style="--fa-animation-duration: 3s; color: Mediumslateblue;" ></i>
+        <i class="fa-solid fa-money-check-dollar fa-flip fa-2x"
+          style="--fa-animation-duration: 3s; color: Mediumslateblue;"></i>
         <div id="currency-container" class="col-md-10 justify-content-between m-0">
         </div>
       </div>
-      
+
     </div>
-    
+
   </header>
   <main class="container">
 
@@ -56,9 +57,10 @@
           <label for="search">
             <h2>Where to?</h2>
           </label>
-          <input class="form-control mr-sm-2 ml-5 mr-0" id="search" type="search" placeholder="Place Name" aria-label="Search">
+          <input class="form-control mr-sm-2 ml-5 mr-0" id="search" type="search" placeholder="Place Name"
+            aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0 ml-0 mr-0" type="submit">
-            <i class="fas fa-search" ></i> Search</button>
+            <i class="fas fa-search"></i> Search</button>
         </form>
       </div>
       <div class="col-lg-9">
@@ -71,7 +73,7 @@
               Weather
             </h3>
             <div id="weather" class="row mt-2 justify-content-start" aria-live="polite">
-              
+
             </div>
           </div>
           <div class="col-md-6">
@@ -95,12 +97,46 @@
   <footer class="container text-center text-white">
     <p>&copy; 2023 Made by Bluebirds <i class="fa-solid fa-dove" style="color: blue;"></i></p>
   </footer>
+
+
+
   <!-- Moment.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
   <!-- jQuery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+
   <script src="./assets/js/script.js"></script>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="errorModalLabel">Invalid city name</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Please check the city name and insert a valid city.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
