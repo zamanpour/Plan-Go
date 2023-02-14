@@ -3,6 +3,10 @@ body {
     background-color: aliceblue;
 }
 
+.navbar {
+    background-color: #43b6cd
+}
+
 /* use online text-stroke generator to modify the style of the brand name*/
 nav a {
     font-family: 'Pacifico', cursive;
@@ -65,8 +69,13 @@ nav a {
 
 
 footer {
+    background-color: #43b6cd;
     border-top: 1px solid blue;
-    text-align: center;
+    padding: 0.5rem 2rem;
+}
+
+footer p {
+    padding-top: 1rem;
 }
 
 /* style of a glowing text */
