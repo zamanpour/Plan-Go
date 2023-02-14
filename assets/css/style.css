@@ -18,7 +18,7 @@ nav a {
 /* Background to jumbotron */
 .jumbotron {
     width: 100%;
-    background: url("/assets/images/jumbotron1.jpg");
+    background: url("./assets/images/jumbotron1.jpg");
     background-size: cover;
     text-shadow: 1px 1px 10px green;
     font-family: 'Aleo', serif;
