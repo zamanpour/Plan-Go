@@ -77,23 +77,52 @@ function showWeather(lat, lon){
     }) 
 } 
 
+// function to record the search history
+function recordSearch(response) {
+    // console.log('This is the function to record the search history.');
+    let cityArr = JSON.parse(localStorage.getItem('cityHistory'));
+    let pageID = Object.keys(response.query.pages)[0];
+    let searchName = response.query.pages[pageID].title;
+
+    if (cityArr === null) {
+        cityArr = [];
+        cityArr.unshift(searchName);
+        localStorage.setItem('cityHistory', JSON.stringify(cityArr));
+        // console.log('No search history.');
+        const historyEl = $('<button>').text(searchName);
+        historyEl.attr({type: 'button', class: 'btn btn-secondary btn-lg btn-block'});
+        $('#searchHistory').prepend(historyEl);
+        
+    } else if (cityArr.includes(searchName)) {
+        console.log(('This city is in the search history'));
+    } else {
+        console.log(('This is a new city'));
+        cityArr.unshift(searchName);
+        localStorage.setItem('cityHistory', JSON.stringify(cityArr));
+        const historyEl = $('<button>').text(searchName);
+        historyEl.attr({type: 'button', class: 'btn btn-secondary btn-lg btn-block'});
+        $('#searchHistory').prepend(historyEl);
+    }
+}
+
 // function to show the description of the searched city
 function showDescription(cityName){
     let queryURL = 'https://en.wikipedia.org/w/api.php?origin=*&format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=';
     queryURL += cityName;
-    console.log(queryURL);
+    // console.log(queryURL);
     $.ajax({
         url: queryURL,
         method: 'GET'
     })
     .then(function(response) {
-        let pageID = Object.keys(response.query.pages)[0] ;
+        let pageID = Object.keys(response.query.pages)[0];
         // wikipedia description. ps: use pages[pageID] other than pages.pageID
-        console.log(response.query.pages[pageID].extract);
+        // console.log(response.query.pages[pageID].extract);
         $('#description').empty();
         $('#placeName').text(response.query.pages[pageID].title);
         const descriptionEl = $('<p>').text(response.query.pages[pageID].extract).addClass('description');
         $('#description').append(descriptionEl);
+        recordSearch(response);
     })
 }
 
@@ -101,7 +130,7 @@ function showDescription(cityName){
 function showInfo(placeName) {
     let lonData, latData;
     let queryURL = 'https://api.opencagedata.com/geocode/v1/json?&key=d29f7107b3d343c7b01affdd5a6ed6c4&q=' + placeName;
-    console.log(queryURL);
+    // console.log(queryURL);
     $.ajax({
         url: queryURL,
         method: 'GET'
@@ -119,6 +148,21 @@ function showInfo(placeName) {
     
 }
 
+// function to initialize the webpage
+function initPage() {
+    let cityArr = JSON.parse(localStorage.getItem('cityHistory'));
+    // console.log(cityArr);
+    if (cityArr != null) {
+        // console.log('City array is not empty');
+        cityArr.forEach(cityName => {
+            const historyEl = $('<button>').text(cityName);
+            historyEl.attr({type: 'button', class: 'btn btn-secondary btn-lg btn-block'});
+            $('#searchHistory').append(historyEl);
+        })
+        // show the latest search result
+        showInfo(cityArr[0]);
+    }
+}
 
 
 // function to show the several main currencies 
@@ -146,7 +190,6 @@ function showCurrency() {
         const CHFEl = $('<li>').text('CHF/USD: ' + CHFCurrency).addClass('col-sm-5 col-lg-2 p-0');
         const CADEl = $('<li>').text('CAD/USD: ' + CADCurrency).addClass('col-sm-5 col-lg-2 p-0');
 
-
         currencyDiv.append(GBPEl, EUREl, JPYEl, CHFEl, CADEl);
 
     })
@@ -157,8 +200,12 @@ function showCurrency() {
 
 // The page can only be manipulated until the document is 'reday'.
 $(document).ready(function(){
+    // initialize the webpage when it's loaded
+    initPage();
+
     showCurrency();
 
+    // event listener for the search form 
     $('#search-form').on('click', 'button', function(event) {
         // Prevent the refresh when hit the 'search' button.
         event.preventDefault();
@@ -172,9 +219,22 @@ $(document).ready(function(){
             $('#map').empty();
             showInfo(cityName);
             $('#search').val('');
-        }
-        
+        } 
     })
+
+    // event listener for the history buttons
+
+        $('#searchHistory').on('click', 'button', function(event){
+        event.preventDefault();
+        // console.log(event.target.innerText);
+        cityName = event.target.innerText.trim();
+        
+
+        $('#map').empty();
+        showInfo(cityName);
+        $('#search').val('');
+    })
+
 });
 
 
