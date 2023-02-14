@@ -38,6 +38,16 @@ nav a {
     border-radius: 10px;
 }
 
+/* style to the date */
+
+#show-date h5 {
+    background-color: rgb(35, 126, 206);
+    border-radius: 5px;
+    margin: 5px;
+    color: white;
+}  
+
+
 #currency-container li {
     list-style-type: none;
     background-color: rgb(35, 126, 206);

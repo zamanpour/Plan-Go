@@ -17,6 +17,11 @@ function showMap(lon, lat) {
     });
 }
 
+// Show date before currency
+const showDate = moment().format("DD/MM/YYYY");
+const showDateEl = $('<h5>').text(showDate)
+$('#show-date').prepend(showDateEl);
+
 // function to show current weather and 5 day forecast of the searched city
 function showWeather(lat, lon) {
     let key = "d19a427e084cc28ea7bccbc2e7e39e2c";
