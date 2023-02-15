@@ -13,7 +13,7 @@ Our group name is Bluebirds, with three members (Vinita, Xiao and Yasha). We wor
 
 
 ## Main features
-* The application uses 5 APIs, namely OpenCage Geocoding API, Weather API, NYT's API, OpenLayers API and Exchange rates API.
+* The application uses 6 APIs, namely OpenCage Geocoding API, Weather API, NYT's API, OpenLayers API, wikipedia API and Exchange rates API.
 
 * The webpage uses responsive design based on Bootstrap.
 
