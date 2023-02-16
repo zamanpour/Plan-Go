@@ -19,7 +19,7 @@ function showMap(lon, lat) {
 
 // Show date before currency
 const showDate = moment().format("DD/MM/YYYY");
-const showDateEl = $('<h5>').text(showDate)
+const showDateEl = $('<h6>').text(showDate)
 $('#show-date').prepend(showDateEl);
 
 // function to show current weather and 5 day forecast of the searched city
@@ -46,10 +46,7 @@ function showWeather(lat, lon) {
         const windDiv = $('<p>').text(" Wind: " + response.list[0].wind.speed + " KPH");
         const humidityDiv = $('<p>').text(" Humidity: " + response.list[0].main.humidity + " %");
         todayCardDiv.append(dateEl, iconEl, tempDiv, windDiv, humidityDiv);
-        $('#weather').append(todayCardDiv)
-
-        // $('#today').text('(' +dateEl+ ')');
-        // $('#today').append(tempDiv,windDiv, humidityDiv);
+        $('#weather').append(todayCardDiv);
 
         let date = response.list[0].dt;
         let dateToday = moment.unix(date).format("DD/MM/YYYY");
