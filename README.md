@@ -1,19 +1,19 @@
 # Plan & Go
 
 ## Description
-The Plan&Go project is our group project for the stage 1 study at the edX bootcamp for 'Frontend Web Developer'. In this project, we worked in a 3-people group to create a web application thats solves a real-word problem.
+The Plan&Go project is our group project for the stage 1 study at the edX bootcamp for 'Frontend Web Developer'. In this project, we worked in a 3-people group to create a web application that solves a real-world problem.
 
 ## User Story
-As a traveler, when I search a city, I want to see the wikipedia description, map, weather and latest news of it. Meanwhile, I want to check the latest currency rates. The previous search can be stored and displayed when I vistied the application next time.
+As a traveller, when I search for a place, I want to see the wikipedia description, map, weather and latest news of it. Meanwhile, I want to check the latest currency rates. The previous search can be stored and displayed when I visit the application next time.
 
 ## Team Work
-Our group name is Bluebirds, with three members (Vinita, Xiao and Yasha). We work collaboratively on Github. The main branch was protected and any pull request needed at least one memeber to review. 
+Our group name is Bluebirds, with three members (Vinita, Xiao and Yasha). We worked collaboratively on Github. The main branch was protected and any pull request needed at least one memeber to review. 
 
 ## Webpage Framework
 
 
 ## Main features
-* The application uses 6 APIs, namely OpenCage Geocoding API, Weather API, NYT's API, OpenLayers API, wikipedia API and Exchange rates API.
+* The application uses 6 APIs, namely OpenCage Geocoding API, OpenWeather API, NYT's API, OpenLayers API, wikipedia API and Exchange rates API.
 
 * The webpage uses responsive design based on Bootstrap.
 
@@ -27,7 +27,7 @@ Our group name is Bluebirds, with three members (Vinita, Xiao and Yasha). We wor
 
 * In addition, the city will be added to the search history if it is not searched before.
 
-* The user can click the history buttons for a quick search of the recorded city. All the information of the city will be rendered to the webpage.
+* The user can click the previous searches buttons for a quick search of the recorded city. All the information of the city will be rendered to the webpage.
 
 * If the user's input is not valid, the webpage will popup a modal to the user.
 
